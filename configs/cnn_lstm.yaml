@@ -1,0 +1,14 @@
+# Optional hybrid: one conv block feeding a bidirectional LSTM
+name: cnn_lstm
+model: cnn_lstm
+params: {channels: 64, kernel_size: 9, hidden_size: 64, dropout: 0.2}
+data: {max_length: 200}
+train:
+  epochs: 10
+  batch_size: 256
+  lr: 0.002
+  weight_decay: 0.01
+  patience: 2
+  grad_clip: 1.0
+  rc_augment: false
+  device: auto

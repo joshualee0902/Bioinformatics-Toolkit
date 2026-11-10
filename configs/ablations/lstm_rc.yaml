@@ -1,0 +1,7 @@
+# Ablation: lstm with random reverse-complement augmentation
+data: {max_length: 200}
+model: lstm
+name: lstm_rc
+params: {dropout: 0.1, hidden_size: 64, num_layers: 1}
+train: {batch_size: 256, device: auto, epochs: 10, grad_clip: 1.0, lr: 0.002, patience: 2,
+  rc_augment: true, weight_decay: 0.01}

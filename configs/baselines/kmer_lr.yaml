@@ -1,0 +1,5 @@
+# Logistic regression on k-mer frequencies for k = 3..6 together
+name: kmer_lr
+model: kmer_lr
+features: [kmer3, kmer4, kmer5, kmer6]
+params: {C: 0.1, max_iter: 2000}

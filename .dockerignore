@@ -1,0 +1,8 @@
+.venv
+.git
+data
+artifacts/predictions
+legacy
+reports
+tests
+notebooks

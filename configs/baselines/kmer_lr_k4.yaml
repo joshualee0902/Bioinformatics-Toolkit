@@ -1,0 +1,5 @@
+# Ablation: k-mer logistic regression with a single k
+name: kmer_lr_k4
+model: kmer_lr
+features: [kmer4]
+params: {C: 0.1, max_iter: 2000}

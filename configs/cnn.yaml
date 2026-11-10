@@ -1,0 +1,14 @@
+# Comparison model: 3-block 1D CNN
+name: cnn
+model: cnn
+params: {channels: 64, kernel_size: 9, num_layers: 3, dropout: 0.2}
+data: {max_length: 200}
+train:
+  epochs: 10
+  batch_size: 256
+  lr: 0.002
+  weight_decay: 0.01
+  patience: 2
+  grad_clip: 1.0
+  rc_augment: false
+  device: auto

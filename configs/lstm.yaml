@@ -1,0 +1,14 @@
+# Primary model: 1-layer bidirectional LSTM on full-length (200 bp) one-hot DNA
+name: lstm
+model: lstm
+params: {hidden_size: 64, num_layers: 1, dropout: 0.1}
+data: {max_length: 200}
+train:
+  epochs: 10
+  batch_size: 256
+  lr: 0.002
+  weight_decay: 0.01
+  patience: 2        # early stopping on validation AUROC
+  grad_clip: 1.0
+  rc_augment: false
+  device: auto       # cuda > mps > cpu
