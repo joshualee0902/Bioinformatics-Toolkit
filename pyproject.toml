@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "biotoolkit"
+version = "0.2.0"
+description = "Coding vs. non-coding DNA classification with LSTMs, built on a small DNA toolkit"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy==2.4.6",
+    "pandas==3.1.1",
+    "scipy==1.17.1",
+    "scikit-learn==1.9.1",
+    "lightgbm==4.7.0",
+    "torch==2.15.0",
+    "biopython==1.88",
+    "SQLAlchemy==2.1.8",
+    "PyMySQL==1.2.4",
+    "fastapi==0.162.2",
+    "uvicorn==0.54.0",
+    "matplotlib==3.11.2",
+    "PyYAML==6.0.3",
+    "genomic-benchmarks==1.0.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==9.2.0", "ruff==0.17.4", "httpx==0.28.1"]
+
+[project.scripts]
+biotoolkit = "biotoolkit.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["biotoolkit*"]
+
+[tool.ruff]
+line-length = 100
+extend-exclude = ["legacy"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
