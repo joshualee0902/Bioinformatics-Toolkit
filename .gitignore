@@ -3,6 +3,6 @@ __pycache__/
 *.egg-info/
 .pytest_cache/
 .ruff_cache/
-data/
-artifacts/
+/data/
+/artifacts/
 .DS_Store
