@@ -1,0 +1,4 @@
+name: gc_lr
+model: gc_lr
+features: [gc]
+params: {C: 1.0, max_iter: 1000}
