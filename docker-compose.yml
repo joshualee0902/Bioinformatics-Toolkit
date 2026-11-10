@@ -1,0 +1,22 @@
+# Local MySQL 8 for experiment storage.
+#   docker compose up -d mysql
+#   export BIOTK_DB_URL=mysql+pymysql://biotk:biotk@127.0.0.1:3306/biotoolkit
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: biotoolkit
+      MYSQL_USER: biotk
+      MYSQL_PASSWORD: biotk
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      retries: 20
+
+volumes:
+  mysql-data:

@@ -1,0 +1,8 @@
+# Data pipeline settings (python -m biotoolkit.data)
+dataset: demo_coding_vs_intergenomic_seqs
+version: 0
+min_length: 150      # benchmark sequences are 200 bp; anything far off is suspect
+max_length: 250
+max_n_fraction: 0.05 # keep a sequence only if <= 5% of its bases are N
+val_fraction: 0.1    # carved from the official train set
+seed: 42
