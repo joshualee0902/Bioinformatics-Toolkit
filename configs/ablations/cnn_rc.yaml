@@ -1,0 +1,7 @@
+# Ablation: cnn with random reverse-complement augmentation
+data: {max_length: 200}
+model: cnn
+name: cnn_rc
+params: {channels: 64, dropout: 0.2, kernel_size: 9, num_layers: 3}
+train: {batch_size: 256, device: auto, epochs: 10, grad_clip: 1.0, lr: 0.002, patience: 2,
+  rc_augment: true, weight_decay: 0.01}

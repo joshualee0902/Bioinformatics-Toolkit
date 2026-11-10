@@ -175,3 +175,21 @@ def delete_experiment(engine: Engine, experiment: str) -> None:
         run_ids = select(Experiment.run_id).where(Experiment.experiment == experiment)
         conn.execute(delete(Metric).where(Metric.run_id.in_(run_ids)))
         conn.execute(delete(Experiment).where(Experiment.experiment == experiment))
+
+
+def best_run(engine: Engine, experiment: str) -> str | None:
+    """run_id of the experiment's seed with the highest validation AUROC."""
+    query = (
+        select(Experiment.run_id)
+        .join(Metric, Metric.run_id == Experiment.run_id)
+        .where(
+            Experiment.experiment == experiment,
+            Metric.split == "val",
+            Metric.metric == "auroc",
+            Metric.epoch.is_(None),
+        )
+        .order_by(Metric.value.desc())
+        .limit(1)
+    )
+    with engine.connect() as conn:
+        return conn.execute(query).scalar()

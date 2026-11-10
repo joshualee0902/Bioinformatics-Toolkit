@@ -1,0 +1,7 @@
+# Ablation: LSTM depth 2, hidden size 32
+data: {max_length: 200}
+model: lstm
+name: lstm_l2_h32
+params: {dropout: 0.1, hidden_size: 32, num_layers: 2}
+train: {batch_size: 256, device: auto, epochs: 10, grad_clip: 1.0, lr: 0.002, patience: 2,
+  rc_augment: false, weight_decay: 0.01}

@@ -1,0 +1,7 @@
+# Ablation: cnn trained and tested on the first 50 bp
+data: {max_length: 50}
+model: cnn
+name: cnn_len50
+params: {channels: 64, dropout: 0.2, kernel_size: 9, num_layers: 3}
+train: {batch_size: 256, device: auto, epochs: 10, grad_clip: 1.0, lr: 0.002, patience: 2,
+  rc_augment: false, weight_decay: 0.01}
